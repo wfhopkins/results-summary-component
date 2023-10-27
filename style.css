@@ -8,8 +8,7 @@
 }
 
 .main-container {
-  font-family: Arial, Helvetica, sans-serif;
-  /* need to dowload correct font. issue with included files */
+  font-family: 'Hanken Grotesk';
   display: flex;
   justify-content: center;
   border: 0.2em solid black;
@@ -32,7 +31,6 @@
 
 .container.a {
   background: linear-gradient( 180deg, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
-  color: hsl(241, 100%, 89%);
   border-top-left-radius: 15% ;
   border-bottom-left-radius: 15% ;
   border-top-right-radius: 15% ;
@@ -40,9 +38,13 @@
   z-index: 2;
 }
 
-.your-score {
-  font-size: 50px;
+.result-heading {
+  color: hsl(241, 100%, 89%);
 }
+.summary-heading {
+
+}
+
 
 .great {
   color: white;
@@ -50,6 +52,7 @@
 }
 
 .percent {
+  color: hsl(241, 100%, 89%);
   width: 65%;
   font-size: 18px;
 }
@@ -60,15 +63,32 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(0deg, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
 }
 
+.circle > .your-score {
+  color: white;
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  justify-content: end;
+  font-size: 50px;
+  font-weight: 800;
+  /* background-color: red; */
+}
 
-
+.circle > .fraction {
+  color: hsl(241, 100%, 89%);
+  display: flex;
+  flex: 1;
+  /* background-color: aquamarine; */
+}
 
 .container.b {
+  display: flex;
+  flex-direction: column;
   background-color: hsl(0, 0%, 100%);
   border-top-right-radius: 15% ;
   border-bottom-right-radius: 15% ;
@@ -78,9 +98,11 @@
 
 .score-box {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center ;
   border: 0.1em solid black;
-  width: 40%;
+  width: 60%;
   padding: 1%;
 }
 
@@ -114,9 +136,32 @@
   padding: 10px
 }
 
+.score-box .icon {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 5%;
+  margin-right: 5px;
+}
 
-.container.a .fraction{
-  color: gray;
+.label {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 50%;
+  /* background-color: blue; */
+}
+
+.score {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 10%;
+  /* background-color: aquamarine; */
+}
+
+.fraction {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: 15%;
+  /* background-color: brown; */
 }
 
 .score-box .fraction {
