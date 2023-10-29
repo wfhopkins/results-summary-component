@@ -11,7 +11,6 @@
   font-family: 'Hanken Grotesk';
   display: flex;
   justify-content: center;
-  border: 0.2em solid black;
   padding: 0.5em;
   width: 1440px;
   height: 1000px;
@@ -21,7 +20,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 0.1em solid black;
+  /* border: 0.1em solid black; */
   padding: 0.1em;
   width: 360px;
   margin-top: 20%;
@@ -30,31 +29,14 @@
 }
 
 .container.a {
-  background: linear-gradient( 180deg, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
-  border-top-left-radius: 15% ;
-  border-bottom-left-radius: 15% ;
-  border-top-right-radius: 15% ;
-  border-bottom-right-radius: 15% ;
+  background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+  border-radius: 10% ;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
 
 .result-heading {
   color: hsl(241, 100%, 89%);
-}
-.summary-heading {
-
-}
-
-
-.great {
-  color: white;
-  font-size: 25px;
-}
-
-.percent {
-  color: hsl(241, 100%, 89%);
-  width: 65%;
-  font-size: 18px;
 }
 
 .circle {
@@ -62,7 +44,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(0deg, hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+  background: linear-gradient(hsl(256, 72%, 46%, 1), hsl(241, 72%, 46%, 0));
   width: 180px;
   height: 180px;
   border-radius: 50%;
@@ -86,21 +68,40 @@
   /* background-color: aquamarine; */
 }
 
+.comment{
+  color: white;
+  font-size: 25px;
+}
+
+.percent {
+  color: hsl(241, 100%, 89%);
+  width: 75%;
+  font-size: 18px;
+}
+
 .container.b {
   display: flex;
   flex-direction: column;
   background-color: hsl(0, 0%, 100%);
-  border-top-right-radius: 15% ;
-  border-bottom-right-radius: 15% ;
+  border-top-right-radius: 10% ;
+  border-bottom-right-radius: 10% ;
   margin-left: -4%;
+  box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.5);
   z-index: 1;
+}
+
+.summary-heading {
+  color: black;
+  margin-left: -100px;
 }
 
 .score-box {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-weight: 700;
   align-items: center ;
+  margin-left: 30px;
   border: 0.1em solid black;
   width: 60%;
   padding: 1%;
@@ -172,7 +173,6 @@
   color: black;
 }
 
-
 .btn-rounded {
   color: white;
   background-color: hsl(224, 30%, 27%);
@@ -180,6 +180,12 @@
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  width: 45%
+  width: 60%;
+  margin-left: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
+.btn-rounded:hover {
+  background-color: hsl(241, 72%, 46%);
+}
