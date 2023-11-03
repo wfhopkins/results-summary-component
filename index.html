@@ -7,11 +7,13 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
   
   <title>Frontend Mentor | Results summary component</title>
+  
+  <!-- Move the @import into our stylesheet -->
   <!-- Call fonts from Google as an alternate method. Advantage: reduce data we must serve, automatically get any font updates. Disadvantage: connectivity issues or latency can affect our display; in theory this method is not as performant as link except I can't find any references written this decade; nor anything that tests a single @import vs. multiple <link>s -->
   <!-- Using the @import directive means that we make a single request to Google to get the fonts we want, but the <link> method works too (see after this) -->
-  <style>
+  <!-- <style>
     @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-  </style>
+  </style> -->
 
 <!-- This is the link method to call Google for the fonts we are going to use. -->
 <!-- Each link tag represents a separate request to Google; all of them need to happen and succeed to make font disxplay work -->
