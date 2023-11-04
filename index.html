@@ -24,47 +24,51 @@
         <p class="comment">Great</p>
         <p class="percent">You scored higher than 65% of the people who have taken these tests.</p>
       </div>
-      <div class="container b">
+      <div id="data-container" class="container b">
         <h2 class="summary-heading">Summary</h2>
-        <p class="score-box reaction">
-          <img class="icon" src="assets/images/icon-reaction.svg">
-          <span class="label">Reaction</span>
-            <span>
-              <span class="score">80</span>
-              <span class="fraction">/ 100</span>
-            </span>
-        </p>
-        <p class="score-box memory">
-          <img class="icon" src="assets/images/icon-memory.svg">
-          <span class="label">Memory</span>
-            <span>
-              <span class="score">92</span>
-              <span class="fraction">/ 100</span>
-            </span>
-        </p>
-        <p class="score-box verbal">
-          <img class="icon" src="assets/images/icon-verbal.svg">
-          <span class="label">Verbal</span>
-            <span>
-              <span class="score">61</span>
-              <span class="fraction">/ 100</span>
-            </span>
-        </p>
-        <p class="score-box visual">
-          <img class="icon" src="assets/images/icon-visual.svg">
-          <span class="label">Visual</span>
-            <span>
-              <span class="score">72</span>
-              <span class="fraction">/ 100</span>
-            </span>
-        </p>
+
+        <!-- THIS IS WHERE THE SCOREBOXES ARE RENDERED BY THE SCRIPT BELOW -->
+
         <button class="btn-rounded">Continue</button>
       </div>
     </div>
   </div>
-  <!-- <div class="attribution">
+  <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
+    Coded by <a href="#">William Ford Hopkins</a>.
+  </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async function() {
+
+    try {
+      const response = await fetch("data.json");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      const dataContainer = document.getElementById("data-container"); 
+
+      data.forEach((item) => {
+        const p = document.createElement("p");
+        p.classList.add("score-box");
+        p.classList.add(item.category.toLowerCase());
+
+        p.innerHTML = `
+          <img class="icon" src="${item.icon}" alt="${item.category} icon">
+          <span class="label">${item.category}</span>
+          <span>
+            <span class="score">${item.score}</span>
+            <span class="fraction">/ 100</span>
+          </span>
+        `;
+        dataContainer.insertBefore(p, dataContainer.querySelector(".btn-rounded"));
+      });
+    } catch (error) {
+      console.error("Error fetching data: " + error);
+    }
+   });
+  </script>
 </body>
 </html>

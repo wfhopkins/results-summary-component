@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<HTML>
+  <head>
+    <title>JSON Example</title>
+  </head>
+  <body>
+    <h1>JSON Example</h1>
+    <p>
+      We're going to output JSON from data.json.
+    </p>
+
+    <div id="data-container" class="container b"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", async function() {
+      // Get the container where you want to display the data
+      try {
+        const response = await fetch("data.json");
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        const dataContainer = document.getElementById("data-container"); 
+          
+          // Loop through the data array and create HTML elements for each item
+        data.forEach((item) => {
+          const p = document.createElement("p");
+          p.classList.add("score-box");
+          p.classList.add(item.category.toLowerCase());
+
+          p.innerHTML = `
+            <img class="icon" src="${item.icon}" alt="${item.category} icon">
+            <span>
+              <span class="label">${item.category}</span>
+              <span>${item.score}</span>
+            </span>
+          `;
+          dataContainer.appendChild(p);
+        });
+        
+      } catch (error) {
+        // console.error("Error fetching data: " + error);
+      }
+     });
+   </script>
+  </body>
+</HTML>
